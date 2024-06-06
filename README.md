@@ -25,6 +25,23 @@
 
 This Project is Deployed by [Saman Nasiri](saman.na30ri@gmail.com) 
 
+## Dependency
+```bash
+npm install @nestjs/mongoose mongoose
+npm install --save @nestjs/config
+
+npm install @nestjs/jwt passport-jwt @nestjs/passport passport bcrypt
+npm install @types/passport-jwt @types/passport --save-dev
+
+
+```
+
+## DatabaseUrl
+
+```bash
+MONGODB_URI=mongodb://localhost:27017/booking-app
+
+```
 ## Installation
 
 ```bash
