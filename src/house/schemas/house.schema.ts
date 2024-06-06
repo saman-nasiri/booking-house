@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
+import { Document } from 'mongoose';
 
 @Schema()
-export class House extends Document {
-  @Prop({ type: Types.ObjectId, ref: 'User', required: true })
-  user_id: Types.ObjectId;
+export class House {
+  @Prop({ required: true })
+  userId: string;
 
   @Prop({ required: true })
   latitude: number;
@@ -17,4 +17,5 @@ export class House extends Document {
   price: number;
 }
 
+export type HouseDocument = House & Document;
 export const HouseSchema = SchemaFactory.createForClass(House);

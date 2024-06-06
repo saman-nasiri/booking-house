@@ -1,16 +1,20 @@
 /* eslint-disable prettier/prettier */
-import { IsString, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber } from 'class-validator';
 
 export class CreateBookingDto {
+  @IsNotEmpty()
   @IsString()
-  guest_id: string;
+  guestId: string;
 
+  @IsNotEmpty()
   @IsString()
-  host_id: string;
+  hostId: string;
 
+  @IsNotEmpty()
   @IsString()
-  house_id: string;
+  houseId: string;
 
+  @IsNotEmpty()
   @IsNumber()
-  total_price: number;
+  totalPrice: number;
 }

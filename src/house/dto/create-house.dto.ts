@@ -1,16 +1,20 @@
 /* eslint-disable prettier/prettier */
-import { IsString, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateHouseDto {
+  @IsNotEmpty()
   @IsString()
-  user_id: string;
+  userId: string;
 
+  @IsNotEmpty()
   @IsNumber()
   latitude: number;
 
+  @IsNotEmpty()
   @IsNumber()
   longitude: number;
 
+  @IsNotEmpty()
   @IsNumber()
   price: number;
 }

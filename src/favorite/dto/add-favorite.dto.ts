@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
-import { IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class AddFavoriteDto {
+  @IsNotEmpty()
   @IsString()
-  user_id: string;
+  userId: string;
 
+  @IsNotEmpty()
   @IsString()
-  house_id: string;
+  houseId: string;
 }

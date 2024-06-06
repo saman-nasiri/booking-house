@@ -9,5 +9,6 @@ import { House, HouseSchema } from './schemas/house.schema';
   imports: [MongooseModule.forFeature([{ name: House.name, schema: HouseSchema }])],
   providers: [HouseService],
   controllers: [HouseController],
+  exports: [MongooseModule],  // Export MongooseModule so that House model can be used in other modules
 })
 export class HouseModule {}
