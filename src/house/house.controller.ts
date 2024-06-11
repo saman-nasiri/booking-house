@@ -1,29 +1,30 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Post, Body, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
 import { HouseService } from './house.service';
 import { CreateHouseDto } from './dto/create-house.dto';
+import { SearchHousesDto } from './dto/search-house.dto';
 
 @Controller('houses')
 export class HouseController {
   constructor(private readonly houseService: HouseService) {}
 
   @Post()
-  async createHouse(@Body() createHouseDto: CreateHouseDto) {
-    return this.houseService.createHouse(createHouseDto);
+  create(@Body() createHouseDto: CreateHouseDto) {
+    return this.houseService.create(createHouseDto);
   }
 
   @Get()
-  async findAll() {
+  findAll() {
     return this.houseService.findAll();
   }
 
   @Get(':id')
-  async findById(@Param('id') id: string) {
-    return this.houseService.findById(id);
+  findOne(@Param('id') id: string) {
+    return this.houseService.findOne(id);
   }
 
   @Get('search')
-  async searchHouses(@Query('latitude') latitude: number, @Query('longitude') longitude: number) {
-    return this.houseService.searchHouses(latitude, longitude);
+  search(@Query() searchHousesDto: SearchHousesDto) {
+    return this.houseService.search(searchHousesDto);
   }
 }

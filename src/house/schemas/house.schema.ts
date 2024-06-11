@@ -1,19 +1,18 @@
 /* eslint-disable prettier/prettier */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-
 @Schema()
 export class House {
-  @Prop({ required: true })
+  @Prop()
   userId: string;
 
-  @Prop({ required: true })
-  latitude: number;
+  @Prop({ type: { type: String, enum: ['Point'], default: 'Point' } })
+  type: string;
 
-  @Prop({ required: true })
-  longitude: number;
+  @Prop({ type: [Number], index: '2dsphere' })
+  coordinates: number[];
 
-  @Prop({ required: true })
+  @Prop()
   price: number;
 }
 
